@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "playwright": {
+      "command": "C:\\Program Files\\nodejs\\node.exe",
+      "args": [
+        "C:\\Users\\Moises\\AppData\\Roaming\\npm\\node_modules\\@playwright\\mcp\\cli.js",
+        "--headless",
+        "--caps",
+        "vision"
+      ]
+    }
+  }
+}
