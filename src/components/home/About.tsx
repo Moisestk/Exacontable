@@ -28,29 +28,22 @@ const FEATURES = [
 export default function About() {
   return (
     <section id="caracteristicas" className="py-24 lg:py-32">
-      <Container className="grid items-center gap-16 lg:grid-cols-2">
-        <div className="order-2 lg:order-1">
-          <div className="grid gap-5 sm:grid-cols-2">
-            {FEATURES.map((feature) => (
-              <div
-                key={feature.title}
-                className="rounded-2xl border border-black/5 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
-              >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-brand/10 text-brand">
-                  <feature.icon className="h-5 w-5" />
-                </span>
-                <h3 className="mt-4 font-bold text-ink">{feature.title}</h3>
-                <p className="mt-1.5 text-sm leading-relaxed text-ink/55">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
+      <Container className="grid items-start gap-16 lg:grid-cols-2">
+        <div className="order-2 grid grid-cols-2 gap-x-8 gap-y-10 lg:order-1">
+          {FEATURES.map((feature) => (
+            <div key={feature.title} className="border-t border-ink/10 pt-5">
+              <feature.icon className="h-6 w-6 text-brand" strokeWidth={1.75} />
+              <h3 className="mt-3 font-bold text-ink">{feature.title}</h3>
+              <p className="mt-1.5 text-sm leading-relaxed text-ink/55">
+                {feature.description}
+              </p>
+            </div>
+          ))}
         </div>
 
         <div className="order-1 lg:order-2">
           <Eyebrow>Sobre EXA</Eyebrow>
-          <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-ink sm:text-4xl">
+          <h2 className="mt-6 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
             Tu aliado estratégico para el éxito empresarial
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-ink/60">
@@ -62,9 +55,11 @@ export default function About() {
             negocio.
           </p>
 
-          <div className="mt-8 flex items-center gap-4 rounded-2xl bg-ink p-6">
-            <span className="text-4xl font-extrabold text-brand">+7</span>
-            <p className="text-sm text-white/60">
+          <div className="mt-8 flex items-baseline gap-4 border-t border-ink/10 pt-6">
+            <span className="text-4xl font-bold tabular-nums text-brand">
+              +7
+            </span>
+            <p className="text-sm text-ink/60">
               años acompañando la gestión financiera de empresas ecuatorianas
             </p>
           </div>

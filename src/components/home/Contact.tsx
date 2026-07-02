@@ -5,7 +5,6 @@ import toast from "react-hot-toast";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
-import Eyebrow from "../ui/Eyebrow";
 import { CONTACT } from "@/lib/site-data";
 
 export default function Contact() {
@@ -21,38 +20,35 @@ export default function Contact() {
   }
 
   return (
-    <section id="contacto" className="py-24 lg:py-32">
+    <section id="contacto" className="bg-white py-24 lg:py-32">
       <Container>
-        <div className="grid overflow-hidden rounded-3xl shadow-xl shadow-black/5 lg:grid-cols-2">
-          <div className="flex flex-col justify-between bg-gradient-to-br from-brand to-brand-dark p-10 text-white lg:p-12">
+        <div className="grid overflow-hidden rounded-xl shadow-xl shadow-ink/5 lg:grid-cols-2">
+          <div className="flex flex-col justify-between bg-brand p-10 text-white lg:p-12">
             <div>
-              <Eyebrow light>Contacto</Eyebrow>
-              <h2 className="mt-6 text-3xl font-extrabold tracking-tight sm:text-4xl">
+              <span className="inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-white">
+                <span className="h-px w-8 bg-white" />
+                Contacto
+              </span>
+              <h2 className="mt-6 text-3xl font-bold tracking-tight sm:text-4xl">
                 ¿Tienes alguna duda?
               </h2>
-              <p className="mt-4 text-white/70">
+              <p className="mt-4 text-white/75">
                 Rellena el formulario y un asesor de EXA se pondrá en contacto
                 contigo a la brevedad.
               </p>
             </div>
 
-            <ul className="mt-10 space-y-5 text-sm">
+            <ul className="mt-10 space-y-5 border-t border-white/20 pt-6 text-sm">
               <li className="flex items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10">
-                  <Mail className="h-4 w-4" />
-                </span>
+                <Mail className="h-4 w-4 shrink-0 text-white/70" />
                 {CONTACT.email}
               </li>
               <li className="flex items-center gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10">
-                  <Phone className="h-4 w-4" />
-                </span>
+                <Phone className="h-4 w-4 shrink-0 text-white/70" />
                 {CONTACT.phone}
               </li>
               <li className="flex items-start gap-3">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white/10">
-                  <MapPin className="h-4 w-4" />
-                </span>
+                <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white/70" />
                 {CONTACT.address}
               </li>
             </ul>
@@ -71,7 +67,7 @@ export default function Contact() {
                 name="message"
                 rows={4}
                 required
-                className="w-full rounded-xl border border-black/10 px-4 py-3 text-sm outline-none transition-colors focus:border-brand"
+                className="w-full rounded-lg border border-ink/15 px-4 py-3 text-sm outline-none transition-colors focus:border-brand"
               />
             </label>
             <Button
@@ -111,7 +107,7 @@ function Field({
         name={name}
         type={type}
         required={required}
-        className="w-full rounded-xl border border-black/10 px-4 py-3 text-sm outline-none transition-colors focus:border-brand"
+        className="w-full rounded-lg border border-ink/15 px-4 py-3 text-sm outline-none transition-colors focus:border-brand"
       />
     </label>
   );

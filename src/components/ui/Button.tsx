@@ -1,18 +1,15 @@
 import { ButtonHTMLAttributes, AnchorHTMLAttributes, ReactNode } from "react";
 
 const VARIANTS = {
-  primary:
-    "bg-brand text-white shadow-lg shadow-brand/25 hover:bg-brand-dark",
-  outline:
-    "border border-black/10 text-ink hover:border-brand/40 hover:text-brand",
+  primary: "bg-brand text-white shadow-md shadow-brand/25 hover:bg-brand-dark",
+  outline: "border border-ink/15 text-ink hover:border-brand hover:text-brand",
   ghost: "text-ink hover:text-brand",
-  white: "bg-white text-brand shadow-lg shadow-black/10 hover:bg-brand-50",
 };
 
 const SIZES = {
   sm: "h-10 px-4 text-sm",
   md: "h-12 px-6 text-sm",
-  lg: "h-14 px-8 text-base",
+  lg: "h-14 px-7 text-base",
 };
 
 type CommonProps = {
@@ -36,7 +33,7 @@ export default function Button({
   href,
   ...props
 }: ButtonProps | AnchorProps) {
-  const classes = `inline-flex items-center justify-center gap-2 rounded-full font-semibold tracking-tight transition-colors duration-200 ${VARIANTS[variant]} ${SIZES[size]} ${className}`;
+  const classes = `inline-flex items-center justify-center gap-2 rounded-lg font-semibold tracking-tight transition-colors duration-150 ${VARIANTS[variant]} ${SIZES[size]} ${className}`;
 
   if (href) {
     return (

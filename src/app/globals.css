@@ -9,21 +9,9 @@
   --color-brand-darker: #4d1212;
   --color-ink: #181818;
   --color-ink-soft: #262220;
+  --color-surface: #f6f4f1;
 
   --font-sans: var(--font-saira), ui-sans-serif, system-ui, sans-serif;
-
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-float-delayed: float 6s ease-in-out 2s infinite;
-
-  @keyframes float {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-14px);
-    }
-  }
 }
 
 body {

@@ -9,7 +9,6 @@ import {
   ShieldCheck,
   Sparkles,
   TrendingDown,
-  TrendingUp,
   Wallet,
 } from "lucide-react";
 import AdvantagesBanner from "./AdvantagesBanner";
@@ -17,14 +16,14 @@ import FeatureRow, { FeatureRowProps } from "./FeatureRow";
 
 const ROWS: FeatureRowProps[] = [
   {
+    index: "01",
     eyebrow: "Visión integral",
     title: "Visión integral de tu negocio",
     description:
       "EXA no solo registra tus transacciones financieras, también te ofrece una visión completa de tu negocio en tiempo real.",
-    visualIcon: BarChart3,
     items: [
       {
-        icon: TrendingUp,
+        icon: BarChart3,
         title: "Indicadores en tiempo real",
         description:
           "Monitoriza tus KPIs y toma decisiones estratégicas basadas en datos precisos.",
@@ -44,13 +43,12 @@ const ROWS: FeatureRowProps[] = [
     ],
   },
   {
+    index: "02",
     eyebrow: "Eficiencia",
     title: "Ahorro de tiempo y dinero",
     description:
       "EXA automatiza tareas tediosas y repetitivas, como la conciliación bancaria, la facturación electrónica y la elaboración de informes.",
-    visualIcon: Clock,
-    dark: true,
-    reverse: true,
+    tinted: true,
     items: [
       {
         icon: Clock,
@@ -71,11 +69,11 @@ const ROWS: FeatureRowProps[] = [
     ],
   },
   {
+    index: "03",
     eyebrow: "Normativa",
     title: "Cumplimiento normativo",
     description:
       "EXA te ayuda a cumplir con todas las obligaciones fiscales y legales ecuatorianas.",
-    visualIcon: Receipt,
     items: [
       {
         icon: Receipt,
@@ -92,13 +90,12 @@ const ROWS: FeatureRowProps[] = [
     ],
   },
   {
+    index: "04",
     eyebrow: "Confianza",
     title: "Seguridad y confiabilidad",
     description:
       "EXA te ofrece la máxima seguridad y confiabilidad para tus datos financieros.",
-    visualIcon: ShieldCheck,
-    dark: true,
-    reverse: true,
+    tinted: true,
     items: [
       {
         icon: ShieldCheck,
@@ -120,11 +117,11 @@ const ROWS: FeatureRowProps[] = [
     ],
   },
   {
+    index: "05",
     eyebrow: "Acompañamiento",
     title: "Soporte técnico de calidad",
     description:
       "EXA te ofrece un servicio de soporte técnico de calidad para ayudarte a resolver cualquier duda o problema.",
-    visualIcon: Headset,
     items: [
       {
         icon: Headset,

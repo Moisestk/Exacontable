@@ -1,42 +1,50 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { ArrowRight, BarChart3, Boxes, CheckCircle2, Receipt } from "lucide-react";
+import {
+  ArrowRight,
+  Award,
+  CircleDollarSign,
+  Cloud,
+  Receipt,
+  ShieldCheck,
+  Wallet,
+} from "lucide-react";
 import Container from "../ui/Container";
 import Button from "../ui/Button";
 import Eyebrow from "../ui/Eyebrow";
 
 const STATS = [
-  { value: "+7 años", label: "en el mercado ecuatoriano" },
-  { value: "100%", label: "cumplimiento normativo SRI" },
-  { value: "24/7", label: "respaldo en la nube" },
+  { icon: Award, value: "+7 años", label: "En el mercado ecuatoriano" },
+  { icon: ShieldCheck, value: "100%", label: "Cumplimiento normativo SRI" },
+  { icon: Cloud, value: "24/7", label: "Respaldo en la nube" },
 ];
+
+const SUMMARY_ROWS = [
+  { icon: Wallet, label: "Ventas del mes", value: "$48,230" },
+  { icon: Receipt, label: "Facturas emitidas", value: "1,284" },
+  { icon: CircleDollarSign, label: "Cuentas por cobrar", value: "$12,940" },
+  { icon: ShieldCheck, label: "Cumplimiento SRI", value: "Al día", accent: true },
+];
+
+const SALES_TREND = [32, 44, 40, 58, 52, 74];
 
 export default function Hero() {
   return (
-    <section
-      id="inicio"
-      className="relative overflow-hidden bg-gradient-to-b from-brand-50/50 via-white to-white pt-16 pb-28 lg:pt-24 lg:pb-36"
-    >
-      <div className="pointer-events-none absolute -top-24 -left-24 h-96 w-96 rounded-full bg-brand/10 blur-3xl" />
-      <div className="pointer-events-none absolute top-1/3 -right-32 h-96 w-96 rounded-full bg-brand/10 blur-3xl" />
-
-      <Container className="relative grid items-center gap-16 lg:grid-cols-2">
+    <section id="inicio" className="bg-white pt-24 pb-24 lg:pt-32 lg:pb-32">
+      <Container className="grid items-start gap-16 lg:grid-cols-2">
         <div>
           <Eyebrow>Sistema contable en la nube</Eyebrow>
-          <h1 className="mt-6 text-4xl font-extrabold leading-[1.1] tracking-tight text-ink sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight text-ink sm:text-5xl lg:text-[3.4rem]">
             Somos la solución integral para{" "}
             <span className="text-brand">la gestión de tu empresa</span> en
             Ecuador
           </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-ink/60">
+          <p className="mt-6 max-w-lg text-lg leading-relaxed text-ink/60">
             EXA Sistema contable y financiero automatiza tu facturación
             electrónica, compras, ventas, inventario y reportes financieros
             en una sola plataforma, cumpliendo siempre con la normativa
             vigente.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-3">
             <Button href="#contacto" size="lg">
               Solicita una demo
               <ArrowRight className="h-4 w-4" />
@@ -46,13 +54,14 @@ export default function Hero() {
             </Button>
           </div>
 
-          <dl className="mt-12 grid grid-cols-3 gap-6 border-t border-black/5 pt-8">
+          <dl className="mt-16 grid grid-cols-3 gap-6 border-t border-ink/10 pt-8">
             {STATS.map((stat) => (
               <div key={stat.label}>
-                <dt className="text-2xl font-extrabold text-ink sm:text-3xl">
+                <stat.icon className="h-4 w-4 text-brand" strokeWidth={2} />
+                <dt className="mt-2 text-2xl font-bold tabular-nums text-ink sm:text-3xl">
                   {stat.value}
                 </dt>
-                <dd className="mt-1 text-xs text-ink/50 sm:text-sm">
+                <dd className="mt-1 text-[11px] font-semibold uppercase tracking-wide text-ink/45">
                   {stat.label}
                 </dd>
               </div>
@@ -61,78 +70,56 @@ export default function Hero() {
         </div>
 
         <div className="relative">
-          <div className="relative rounded-[2rem] bg-gradient-to-br from-brand to-brand-dark p-8 shadow-2xl shadow-brand/30">
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-widest text-white/60">
-                  Panel EXA
-                </p>
-                <p className="text-lg font-bold text-white">
-                  Resumen del negocio
-                </p>
-              </div>
-              <span className="h-3 w-3 rounded-full bg-white/40" />
+          <div className="absolute -right-4 -bottom-4 hidden h-full w-full rounded-xl bg-brand sm:block" />
+
+          <div className="relative overflow-hidden rounded-xl border border-ink/10 bg-white shadow-xl shadow-ink/5">
+            <div className="flex items-center justify-between border-b border-ink/10 px-6 py-5">
+              <p className="font-bold text-ink">Resumen financiero</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-ink/40">
+                Junio 2026
+              </p>
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-4">
-              <div className="rounded-2xl bg-white/10 p-4 backdrop-blur">
-                <Receipt className="h-5 w-5 text-white/80" />
-                <p className="mt-3 text-2xl font-extrabold text-white">
-                  1,284
-                </p>
-                <p className="text-xs text-white/60">Facturas emitidas</p>
-              </div>
-              <div className="rounded-2xl bg-white/10 p-4 backdrop-blur">
-                <BarChart3 className="h-5 w-5 text-white/80" />
-                <p className="mt-3 text-2xl font-extrabold text-white">
-                  $48.2k
-                </p>
-                <p className="text-xs text-white/60">Ventas del mes</p>
-              </div>
-              <div className="col-span-2 rounded-2xl bg-white/10 p-4 backdrop-blur">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Boxes className="h-5 w-5 text-white/80" />
-                    <p className="text-sm font-semibold text-white">
-                      Inventario sincronizado
-                    </p>
+            <div className="divide-y divide-ink/8 px-6">
+              {SUMMARY_ROWS.map((row) => (
+                <div
+                  key={row.label}
+                  className="flex items-center justify-between py-4"
+                >
+                  <div className="flex items-center gap-2.5 text-sm text-ink/60">
+                    <row.icon className="h-4 w-4 text-ink/35" strokeWidth={2} />
+                    {row.label}
                   </div>
-                  <span className="text-xs font-bold text-white/80">98%</span>
+                  <p
+                    className={`text-sm font-bold tabular-nums ${
+                      row.accent ? "text-brand" : "text-ink"
+                    }`}
+                  >
+                    {row.value}
+                  </p>
                 </div>
-                <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-white/15">
-                  <div className="h-full w-[98%] rounded-full bg-white" />
-                </div>
+              ))}
+            </div>
+
+            <div className="border-t border-ink/10 px-6 py-5">
+              <p className="text-[11px] font-semibold uppercase tracking-wide text-ink/40">
+                Ventas · últimos 6 meses
+              </p>
+              <div className="mt-4 flex h-14 items-end gap-2.5">
+                {SALES_TREND.map((height, index) => (
+                  <div
+                    key={index}
+                    className={`flex-1 rounded-t-sm ${
+                      index === SALES_TREND.length - 1
+                        ? "bg-brand"
+                        : "bg-ink/10"
+                    }`}
+                    style={{ height: `${height}%` }}
+                  />
+                ))}
               </div>
             </div>
           </div>
-
-          <motion.div
-            animate={{ y: [0, -14, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute -top-6 -right-4 hidden items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-xl shadow-black/10 sm:flex"
-          >
-            <CheckCircle2 className="h-5 w-5 text-brand" />
-            <div>
-              <p className="text-sm font-bold text-ink">Factura emitida</p>
-              <p className="text-xs text-ink/50">Validada por el SRI</p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            animate={{ y: [0, 14, 0] }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: 1,
-            }}
-            className="absolute -bottom-8 -left-6 hidden rounded-2xl bg-white px-5 py-4 shadow-xl shadow-black/10 sm:block"
-          >
-            <p className="text-xs font-semibold text-ink/50">
-              Cumplimiento SRI
-            </p>
-            <p className="text-xl font-extrabold text-brand">Al día</p>
-          </motion.div>
         </div>
       </Container>
     </section>
